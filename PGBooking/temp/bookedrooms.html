@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pg | ADMIN</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <style>
+    /* .navbarnav{
+            margin-left: 300px;
+        } */
+
+    #navigation {
+      background-color: #7b04aa;
+    }
+
+    .content {
+      text-align: justify;
+      width: 800px;
+      font-size: 20px;
+      margin-top: 80px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg " id="navigation">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/adminportal/">ADMIN</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse navbarnav" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/viewUsers/">View Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/bookedrooms/">View Booked Rooms</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/addRoom/">Add Room</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <center><div class="h1">Booked Room's Details</div></center>
+    <table class="table table-striped">
+        <tr>
+            <th class="text-center" >ID</th>
+            <th class="text-center" >Name</th>
+            <th class="text-center" >Room Name</th>
+            <th class="text-center" >Room No</th>
+            <th class="text-center" >Capacity</th>
+            <th class="text-center" >Rent</th>
+            <th class="text-center" >Description</th>
+          <!--  <th class="date">date</th>-->
+        </tr>
+        {% for a in book %}
+        <tr>
+            <td class="text-center">{{ a.id }}</td>
+            <td class="text-center">{{ a.booked_user }}</td>
+            <td class="text-center">{{ a.booked_room_name }}</td>
+            <td class="text-center">{{ a.booked_room_no }}</td>
+            <td class="text-center">{{ a.booked_cap }}</td>
+            <td class="text-center">{{ a.booked_rent_room }}</td>
+            <td class="text-center">{{ a.booked_description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
